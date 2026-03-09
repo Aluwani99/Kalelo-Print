@@ -1,0 +1,11 @@
+/* ================================================================
+   STATS.CSS
+   ================================================================ */
+.stats-section  { background:var(--ink); background-image:var(--grain-dark); }
+.stats-row      { max-width:var(--max-width); margin:0 auto; display:grid; grid-template-columns:repeat(4,1fr); border-left:1px solid rgba(255,255,255,.1); }
+.stat-col       { border-right:1px solid rgba(255,255,255,.1); padding:48px 36px; text-align:center; transition:background var(--t); }
+.stat-col:hover { background:rgba(255,255,255,.04); }
+.stat-col-num   { font-family:'Bebas Neue',sans-serif; font-size:clamp(52px,6vw,80px); line-height:1; color:var(--cream); margin-bottom:6px; }
+.stat-col-num em { color:var(--red); font-style:normal; }
+.stat-col-lbl   { font-family:'Syne',sans-serif; font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:rgba(245,240,232,.5); }
+.stat-col-icon  { font-size:24px; color:var(--gold); margin-bottom:14px; display:block; }

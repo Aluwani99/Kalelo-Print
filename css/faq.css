@@ -1,0 +1,13 @@
+/* ================================================================
+   FAQ.CSS
+   ================================================================ */
+.faq-section        { background:var(--cream); background-image:var(--grain); }
+.faq-list           { max-width:var(--max-width); margin:0 auto; }
+.faq-item           { border-bottom:var(--border); }
+.faq-q              { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:20px 36px; cursor:pointer; font-family:'Syne',sans-serif; font-size:14.5px; font-weight:700; transition:background var(--t),color var(--t); user-select:none; }
+.faq-q:hover        { background:var(--ink); color:var(--cream); }
+.faq-q i            { font-size:11px; flex-shrink:0; transition:transform .25s; }
+.faq-item.open .faq-q   { background:var(--ink); color:var(--cream); }
+.faq-item.open .faq-q i { transform:rotate(180deg); }
+.faq-a              { display:none; padding:22px 36px; font-size:13.5px; color:#555; line-height:1.8; border-top:var(--border); background:rgba(26,26,26,.025); }
+.faq-item.open .faq-a   { display:block; }

@@ -1,0 +1,38 @@
+<!-- ================================================================
+     PRODUCTS.HTML  —  Shop with filter bar + product grid
+     Products are rendered by main.js from the PRODUCTS data array
+     ================================================================ -->
+<section id="shop" class="shop-section">
+  <div class="sec-head red-kicker">
+    <div class="sec-head-inner">
+      <div class="sec-kicker red"><i class="fas fa-print"></i>Shop</div>
+      <div class="sec-vr"></div>
+      <div class="sec-title-area">
+        <h2>Our Products</h2>
+        <p>From business stationery to large-format signage — everything printed to perfection.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Filter bar -->
+  <div class="filter-strip" role="toolbar" aria-label="Filter products by category">
+    <button class="filt active" onclick="KP.shop.filter('all',this)"><i class="fas fa-th"></i>All</button>
+    <button class="filt" onclick="KP.shop.filter('printing',this)"><i class="fas fa-print"></i>Printing</button>
+    <button class="filt" onclick="KP.shop.filter('signage',this)"><i class="fas fa-sign"></i>Signage</button>
+    <button class="filt" onclick="KP.shop.filter('calendars',this)"><i class="fas fa-calendar-alt"></i>Calendars</button>
+    <button class="filt" onclick="KP.shop.filter('apparel',this)"><i class="fas fa-tshirt"></i>Apparel</button>
+    <button class="filt" onclick="KP.shop.filter('sublimation',this)"><i class="fas fa-mug-hot"></i>Sublimation</button>
+    <button class="filt" onclick="KP.shop.filter('specialty',this)"><i class="fas fa-fire"></i>Specialty</button>
+    <button class="filt" onclick="KP.shop.filter('stationery',this)"><i class="fas fa-pen"></i>Stationery</button>
+  </div>
+
+  <!-- Product grid — populated by JS -->
+  <div class="products-grid" id="prodGrid" aria-label="Products"></div>
+
+  <!-- Load more -->
+  <div class="load-row">
+    <button class="btn-more" id="loadMoreBtn" onclick="KP.shop.loadMore()">
+      <i class="fas fa-plus"></i> Load More Products
+    </button>
+  </div>
+</section>

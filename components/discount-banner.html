@@ -1,0 +1,35 @@
+<!-- ================================================================
+     DISCOUNT-BANNER.HTML  —  Promotional banner with countdown
+     ================================================================ -->
+<section class="discount-banner" aria-label="Current promotion">
+  <div class="discount-inner">
+
+    <!-- Badge -->
+    <div class="discount-badge" aria-hidden="true">10%</div>
+
+    <!-- Text -->
+    <div class="discount-text">
+      <h3>New Customer Discount — 10% Off Your First Order!</h3>
+      <p>Use code <strong>KALELO10</strong> at checkout. Valid on all products. One use per customer. T&amp;Cs apply.</p>
+    </div>
+
+    <!-- Countdown -->
+    <div class="discount-countdown" aria-label="Offer ends in">
+      <div class="cd-seg"><div class="cd-num" id="cdDays">07</div><div class="cd-lbl">Days</div></div>
+      <div class="cd-colon">:</div>
+      <div class="cd-seg"><div class="cd-num" id="cdHours">14</div><div class="cd-lbl">Hours</div></div>
+      <div class="cd-colon">:</div>
+      <div class="cd-seg"><div class="cd-num" id="cdMins">32</div><div class="cd-lbl">Mins</div></div>
+      <div class="cd-colon">:</div>
+      <div class="cd-seg"><div class="cd-num" id="cdSecs">00</div><div class="cd-lbl">Secs</div></div>
+    </div>
+
+    <!-- CTA -->
+    <div class="discount-cta">
+      <a href="#shop" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'});return false">
+        Shop Now <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,59 @@
+<!-- ================================================================
+     TOPBAR.HTML  —  Sticky announcement + contact bar
+     Kalelo Print · Sandton, Gauteng
+     ================================================================ -->
+<div class="topbar" role="banner">
+  <div class="topbar-inner">
+
+    <!-- Left: contact pills -->
+    <a href="tel:+27113456789" class="tb"><i class="fas fa-phone-alt"></i>+27 11 345 6789</a>
+    <a href="mailto:info@kaleloprint.co.za" class="tb"><i class="fas fa-envelope"></i>info@kaleloprint.co.za</a>
+    <span class="tb"><i class="fas fa-map-marker-alt"></i>Sandton, Gauteng</span>
+
+    <!-- Centre: scrolling ticker -->
+    <div class="topbar-ticker" aria-hidden="true">
+      <div class="ticker-belt">
+        <span class="ticker-seg"><i class="fas fa-clock"></i>Mon–Fri 8am–5pm · Sat 9am–1pm</span><span class="ticker-pip"></span>
+        <span class="ticker-seg"><i class="fas fa-truck"></i>Free delivery on orders over R500</span><span class="ticker-pip"></span>
+        <span class="ticker-seg"><i class="fas fa-print"></i>Same-day printing — order before 10am</span><span class="ticker-pip"></span>
+        <span class="ticker-seg"><i class="fas fa-tag"></i>New customers — 10% off first order</span><span class="ticker-pip"></span>
+        <span class="ticker-seg"><i class="fas fa-star"></i>Rated 4.8 ★ on Google · 200+ reviews</span><span class="ticker-pip"></span>
+        <span class="ticker-seg"><i class="fas fa-shield-alt"></i>Quality guaranteed or we reprint free</span><span class="ticker-pip"></span>
+        <!-- duplicate for seamless loop -->
+        <span class="ticker-seg"><i class="fas fa-clock"></i>Mon–Fri 8am–5pm · Sat 9am–1pm</span><span class="ticker-pip"></span>
+        <span class="ticker-seg"><i class="fas fa-truck"></i>Free delivery on orders over R500</span><span class="ticker-pip"></span>
+        <span class="ticker-seg"><i class="fas fa-print"></i>Same-day printing — order before 10am</span><span class="ticker-pip"></span>
+        <span class="ticker-seg"><i class="fas fa-tag"></i>New customers — 10% off first order</span><span class="ticker-pip"></span>
+        <span class="ticker-seg"><i class="fas fa-star"></i>Rated 4.8 ★ on Google · 200+ reviews</span><span class="ticker-pip"></span>
+        <span class="ticker-seg"><i class="fas fa-shield-alt"></i>Quality guaranteed or we reprint free</span><span class="ticker-pip"></span>
+      </div>
+    </div>
+
+    <!-- Right: rating + socials + delivery + login -->
+    <div class="topbar-right">
+      <span class="tb stars-item">
+        <span class="stars">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i>
+          <i class="fas fa-star"></i><i class="fas fa-star"></i>
+          <i class="fas fa-star-half-alt"></i>
+        </span>
+        <span class="score">4.8</span>
+        <span class="ct">(200)</span>
+      </span>
+
+      <div class="tb-socials" aria-label="Social links">
+        <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://google.com" target="_blank" rel="noopener" aria-label="Google"><i class="fab fa-google"></i></a>
+        <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter/X"><i class="fab fa-x-twitter"></i></a>
+      </div>
+
+      <span class="tb delivery"><i class="fas fa-truck"></i>Free Delivery R500+</span>
+
+      <button class="tb login" onclick="KP.modal.open('login')" aria-label="Login or Register">
+        <i class="fas fa-user-circle"></i>Login / Register
+      </button>
+    </div>
+
+  </div>
+</div>

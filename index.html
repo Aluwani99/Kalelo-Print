@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kalelo Print — Sandton's premier online printing studio. Fast turnaround, quality guaranteed. Flyers, banners, apparel, signage, sublimation and more.">
+  <meta name="keywords" content="printing Sandton, printing Gauteng, business cards Sandton, banners Johannesburg, branded apparel, signage Gauteng">
+  <meta name="author" content="Kalelo Print">
+  <meta property="og:title"       content="Kalelo Print — Sandton, Gauteng">
+  <meta property="og:description" content="Professional printing services in Sandton. Fast turnaround, free delivery over R500.">
+  <meta property="og:type"        content="website">
+  <title>Kalelo Print – Sandton, Gauteng</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Master CSS (imports all partials via @import) -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Favicon placeholder — replace with real favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🖨️</text></svg>">
+</head>
+<body>
+
+  <!--
+    ╔══════════════════════════════════════════════════════════════╗
+    ║  COMPONENT MOUNT POINTS                                     ║
+    ║  Each div#* is filled by loadComponent() below             ║
+    ╚══════════════════════════════════════════════════════════════╝
+  -->
+
+  <!-- ① Top Bar -->
+  <div id="c-topbar"></div>
+
+  <!-- ② Navigation + mobile drawer -->
+  <div id="c-navigation"></div>
+
+  <!-- ③ Hero -->
+  <main id="main-content">
+    <div id="c-hero"></div>
+
+    <!-- ④ Services -->
+    <div id="c-services"></div>
+
+    <!-- ⑤ How It Works -->
+    <div id="c-how-it-works"></div>
+
+    <!-- ⑥ Discount Banner -->
+    <div id="c-discount-banner"></div>
+
+    <!-- ⑦ Products / Shop -->
+    <div id="c-products"></div>
+
+    <!-- ⑧ Stats -->
+    <div id="c-stats"></div>
+
+    <!-- ⑨ About -->
+    <div id="c-about"></div>
+
+    <!-- ⑩ Portfolio -->
+    <div id="c-portfolio"></div>
+
+    <!-- ⑪ Why Choose Us -->
+    <div id="c-why-choose-us"></div>
+
+    <!-- ⑫ Testimonials -->
+    <div id="c-testimonials"></div>
+
+    <!-- ⑬ Price Calculator / Printing Options -->
+    <div id="c-printing-options"></div>
+
+    <!-- ⑭ Upload Artwork -->
+    <div id="c-upload"></div>
+
+    <!-- ⑮ FAQ -->
+    <div id="c-faq"></div>
+
+    <!-- ⑯ Blog -->
+    <div id="c-blog"></div>
+  </main>
+
+  <!-- ⑰ Footer -->
+  <div id="c-footer"></div>
+
+  <!-- ⑱ Modals (hidden by default) -->
+  <div id="c-modals"></div>
+
+  <!-- ⑲ Cart Sidebar -->
+  <div id="c-cart-sidebar"></div>
+
+  <!-- ⑳ WhatsApp widget -->
+  <div id="c-whatsapp"></div>
+
+  <!--
+    ╔══════════════════════════════════════════════════════════════╗
+    ║  COMPONENT LOADER                                           ║
+    ║  Fetches each HTML partial and injects it into its mount   ║
+    ║  point. Falls back gracefully if fetch is unavailable.     ║
+    ╚══════════════════════════════════════════════════════════════╝
+  -->
+  <script>
+    /**
+     * Load a component HTML file and inject it into a mount point.
+     * @param {string} mountId  - id of the target element
+     * @param {string} filename - filename in /components/
+     * @returns {Promise<void>}
+     */
+    async function loadComponent(mountId, filename) {
+      const mount = document.getElementById(mountId);
+      if (!mount) return;
+      try {
+        const res  = await fetch(`components/${filename}`);
+        if (!res.ok) throw new Error(`HTTP ${res.status} loading ${filename}`);
+        mount.innerHTML = await res.text();
+      } catch (err) {
+        console.warn(`[KP] Could not load component "${filename}":`, err.message);
+        // Silent fail — component placeholder remains empty
+      }
+    }
+
+    /**
+     * Load all components in order, then initialise the app.
+     * Components that contain interactive elements (modals, cart, WA)
+     * must be loaded before main.js runs KP.init on DOMContentLoaded.
+     */
+    async function loadAllComponents() {
+      // Load structural components in parallel where safe to do so
+      await Promise.all([
+        loadComponent('c-topbar',          'topbar.html'),
+        loadComponent('c-navigation',      'navigation.html'),
+        loadComponent('c-modals',          'modals.html'),
+        loadComponent('c-cart-sidebar',    'cart-sidebar.html'),
+        loadComponent('c-whatsapp',        'whatsapp.html'),
+      ]);
+
+      // Load page sections sequentially to preserve DOM order
+      await loadComponent('c-hero',            'hero.html');
+      await loadComponent('c-services',        'services.html');
+      await loadComponent('c-how-it-works',    'how-it-works.html');
+      await loadComponent('c-discount-banner', 'discount-banner.html');
+      await loadComponent('c-products',        'products.html');
+      await loadComponent('c-stats',           'stats.html');
+      await loadComponent('c-about',           'about.html');
+      await loadComponent('c-portfolio',       'portfolio.html');
+      await loadComponent('c-why-choose-us',   'why-choose-us.html');
+      await loadComponent('c-testimonials',    'testimonials.html');
+      await loadComponent('c-printing-options','printing-options.html');
+      await loadComponent('c-upload',          'upload.html');
+      await loadComponent('c-faq',             'faq.html');
+      await loadComponent('c-blog',            'blog.html');
+      await loadComponent('c-footer',          'footer.html');
+
+      // All components are in the DOM — now run the app
+      // (DOMContentLoaded has already fired; dispatch a custom event instead)
+      document.dispatchEvent(new Event('kp:ready'));
+    }
+
+    // Kick off
+    loadAllComponents();
+  </script>
+
+  <!--
+    Main JS — listens for 'kp:ready' as well as DOMContentLoaded
+    so it works whether components are loaded sync or async.
+  -->
+  <script src="js/main.js"></script>
+
+  <!--
+    Patch: also init on kp:ready (fired after all components mount)
+    main.js already listens to DOMContentLoaded but components may
+    not be injected yet at that point when using fetch.
+  -->
+  <script>
+    document.addEventListener('kp:ready', () => {
+      if (typeof KP === 'undefined') return;
+      KP.shop.render();
+      KP.testimonials.render();
+      KP.faq.render();
+      KP.blog.render();
+      KP.countdown.init();
+      KP.calc.update();
+      KP.scroll.init();
+      KP.cart.render();
+    });
+  </script>
+
+</body>
+</html>

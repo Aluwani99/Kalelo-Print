@@ -1,0 +1,17 @@
+/* ================================================================
+   DISCOUNT-BANNER.CSS
+   ================================================================ */
+.discount-banner    { background:var(--red); border-top:var(--border-thick); border-bottom:var(--border-thick); overflow:hidden; }
+.discount-inner     { max-width:var(--max-width); margin:0 auto; display:flex; align-items:stretch; min-height:80px; }
+.discount-badge     { background:var(--ink); color:var(--gold); font-family:'Bebas Neue',sans-serif; font-size:48px; line-height:1; padding:0 32px; display:flex; align-items:center; justify-content:center; flex-shrink:0; border-right:var(--border-thick); }
+.discount-text      { flex:1; padding:0 32px; display:flex; flex-direction:column; justify-content:center; }
+.discount-text h3   { font-family:'Syne',sans-serif; font-size:22px; font-weight:800; color:#fff; letter-spacing:.02em; margin-bottom:4px; }
+.discount-text p    { font-size:13px; color:rgba(255,255,255,.8); }
+.discount-countdown { display:flex; align-items:center; gap:4px; padding:0 28px; border-left:var(--border-thick); flex-shrink:0; }
+.cd-seg             { display:flex; flex-direction:column; align-items:center; }
+.cd-num             { font-family:'Bebas Neue',sans-serif; font-size:32px; line-height:1; color:#fff; }
+.cd-lbl             { font-size:9px; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.6); }
+.cd-colon           { font-family:'Bebas Neue',sans-serif; font-size:28px; color:rgba(255,255,255,.5); margin:0 4px; margin-bottom:10px; }
+.discount-cta       { display:flex; align-items:center; padding:0 32px; border-left:var(--border-thick); flex-shrink:0; }
+.discount-cta a     { display:inline-flex; align-items:center; gap:8px; padding:14px 24px; background:var(--ink); color:var(--cream); font-family:'Syne',sans-serif; font-size:12px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; transition:background var(--t); }
+.discount-cta a:hover { background:#fff; color:var(--ink); }

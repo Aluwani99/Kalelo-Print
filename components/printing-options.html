@@ -1,0 +1,155 @@
+<!-- ================================================================
+     PRINTING-OPTIONS.HTML  —  Live price calculator
+     ================================================================ -->
+<section class="price-calc">
+  <div class="sec-head">
+    <div class="sec-head-inner">
+      <div class="sec-kicker"><i class="fas fa-calculator"></i>Price Calculator</div>
+      <div class="sec-vr"></div>
+      <div class="sec-title-area">
+        <h2>Get an Instant Quote</h2>
+        <p>Configure your print job and see a live price estimate — no signup required.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="calc-grid">
+
+    <!-- Left: form -->
+    <div class="calc-left">
+      <div class="form-row-grid">
+        <div class="form-row">
+          <label>Product Type</label>
+          <div class="select-wrap">
+            <select id="calcProduct" onchange="KP.calc.update()">
+              <option value="flyer">Flyers</option>
+              <option value="business-card">Business Cards</option>
+              <option value="banner">Banners</option>
+              <option value="booklet">Booklets</option>
+              <option value="tshirt">T-Shirts</option>
+              <option value="mug">Mugs</option>
+              <option value="sticker">Stickers</option>
+              <option value="calendar">Calendars</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label>Paper / Material</label>
+          <div class="select-wrap">
+            <select id="calcMaterial" onchange="KP.calc.update()">
+              <option value="standard">Standard (80gsm)</option>
+              <option value="premium">Premium (130gsm)</option>
+              <option value="gloss">Gloss Coated</option>
+              <option value="matte">Matte Coated</option>
+              <option value="recycled">Recycled Stock</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row-grid">
+        <div class="form-row">
+          <label>Size</label>
+          <div class="select-wrap">
+            <select id="calcSize" onchange="KP.calc.update()">
+              <option value="a6">A6 (105×148mm)</option>
+              <option value="a5">A5 (148×210mm)</option>
+              <option value="a4" selected>A4 (210×297mm)</option>
+              <option value="a3">A3 (297×420mm)</option>
+              <option value="a2">A2 (420×594mm)</option>
+              <option value="a1">A1 (594×841mm)</option>
+              <option value="custom">Custom Size</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label>Finish</label>
+          <div class="select-wrap">
+            <select id="calcFinish" onchange="KP.calc.update()">
+              <option value="none">No Finish</option>
+              <option value="gloss-lam">Gloss Laminate</option>
+              <option value="matte-lam">Matte Laminate</option>
+              <option value="uv">Spot UV</option>
+              <option value="foil">Foil Stamp</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row-grid">
+        <div class="form-row">
+          <label>Print Sides</label>
+          <div class="select-wrap">
+            <select id="calcSides" onchange="KP.calc.update()">
+              <option value="1">Single-sided</option>
+              <option value="2">Double-sided (+30%)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label>Turnaround</label>
+          <div class="select-wrap">
+            <select id="calcTurnaround" onchange="KP.calc.update()">
+              <option value="standard">Standard (2–3 days)</option>
+              <option value="express">Express (Next day, +25%)</option>
+              <option value="sameday">Same Day (+50%)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label>Quantity: <strong id="qtyDisplay">100</strong></label>
+        <input type="range" id="calcQty" min="25" max="5000" step="25" value="100" oninput="KP.calc.updateQty(this.value)">
+        <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-top:4px;">
+          <span>25</span><span>500</span><span>1000</span><span>2500</span><span>5000</span>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label>Delivery</label>
+        <div class="select-wrap">
+          <select id="calcDelivery" onchange="KP.calc.update()">
+            <option value="collection">Collection (Free)</option>
+            <option value="local">Sandton / Joburg (R80)</option>
+            <option value="gauteng">Gauteng (R120)</option>
+            <option value="national">Nationwide (R150)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="calc-vr" aria-hidden="true"></div>
+
+    <!-- Right: price display -->
+    <div class="calc-right">
+      <div class="price-result">
+        <div class="price-result-label">Estimated Total</div>
+        <div class="price-result-amount">R<em id="calcPrice">0</em></div>
+        <div class="price-result-note">Excl. VAT · Final price may vary</div>
+      </div>
+
+      <div class="price-breakdown">
+        <div class="price-breakdown-row"><span>Print cost</span><span id="bkPrint">R0.00</span></div>
+        <div class="price-breakdown-row"><span>Finish</span><span id="bkFinish">R0.00</span></div>
+        <div class="price-breakdown-row"><span>Express fee</span><span id="bkExpress">R0.00</span></div>
+        <div class="price-breakdown-row"><span>Delivery</span><span id="bkDelivery">R0.00</span></div>
+        <div class="price-breakdown-row"><span>Subtotal (excl. VAT)</span><span id="bkSubtotal">R0.00</span></div>
+      </div>
+
+      <button class="btn btn-ink" style="width:100%;justify-content:center;padding:15px;font-size:13px;" onclick="KP.modal.open('quote')">
+        <i class="fas fa-file-invoice"></i> Request a Formal Quote
+      </button>
+
+      <p style="font-size:11.5px;color:var(--muted);margin-top:12px;text-align:center;line-height:1.6;">
+        This is an estimate only. Final pricing is confirmed on your formal quote.<br>
+        <a href="tel:+27113456789" style="color:var(--red);font-weight:600">+27 11 345 6789</a> ·
+        <a href="mailto:info@kaleloprint.co.za" style="color:var(--red);font-weight:600">info@kaleloprint.co.za</a>
+      </p>
+    </div>
+
+  </div>
+</section>

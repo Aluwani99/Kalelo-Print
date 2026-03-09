@@ -1,0 +1,100 @@
+<!-- ================================================================
+     NAVIGATION.HTML  —  Sticky navbar + dropdowns + mobile drawer
+     ================================================================ -->
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+
+    <!-- Logo -->
+    <a href="#home" class="nav-logo" aria-label="Kalelo Print Home">
+      <div class="nav-logo-mark"><i class="fas fa-print"></i></div>
+      <div class="nav-logo-text">
+        <strong>Kalelo<span>Print</span></strong>
+        <small>Sandton · Gauteng</small>
+      </div>
+    </a>
+
+    <!-- Desktop nav links -->
+    <div class="nav-links" role="menubar">
+
+      <a href="#home"     class="active" role="menuitem">Home</a>
+      <a href="#services" role="menuitem">Services</a>
+      <a href="#shop"     role="menuitem">Shop</a>
+      <a href="#portfolio" role="menuitem">Portfolio</a>
+
+      <!-- Products dropdown -->
+      <div class="nav-drop" role="menuitem" aria-haspopup="true" aria-expanded="false">
+        <button class="nav-drop-btn">Products <i class="fas fa-chevron-down"></i></button>
+        <div class="nav-drop-menu">
+          <a href="#shop"><i class="fas fa-print"></i>Digital Printing</a>
+          <a href="#shop"><i class="fas fa-sign"></i>Signage &amp; Banners</a>
+          <a href="#shop"><i class="fas fa-tshirt"></i>Apparel</a>
+          <a href="#shop"><i class="fas fa-calendar-alt"></i>Calendars</a>
+          <a href="#shop"><i class="fas fa-mug-hot"></i>Sublimation</a>
+          <a href="#shop"><i class="fas fa-fire"></i>Specialty Items</a>
+        </div>
+      </div>
+
+      <!-- My Account dropdown -->
+      <div class="nav-drop" role="menuitem" aria-haspopup="true" aria-expanded="false">
+        <button class="nav-drop-btn">My Account <i class="fas fa-chevron-down"></i></button>
+        <div class="nav-drop-menu">
+          <a href="#" onclick="KP.modal.open('login');return false"><i class="fas fa-id-card"></i>My Profile</a>
+          <a href="#" onclick="KP.modal.open('login');return false"><i class="fas fa-box"></i>My Orders</a>
+          <a href="#" onclick="KP.modal.open('login');return false"><i class="fas fa-heart"></i>Wishlist</a>
+          <a href="#" onclick="KP.modal.open('login');return false"><i class="fas fa-cog"></i>Settings</a>
+          <a href="#" onclick="KP.modal.open('login');return false"><i class="fas fa-sign-out-alt"></i>Logout</a>
+        </div>
+      </div>
+
+      <a href="#about"   role="menuitem">About</a>
+      <a href="#contact" role="menuitem">Contact</a>
+
+      <a href="#" class="cta" onclick="KP.modal.open('quote');return false" role="menuitem">
+        ✦ Request a Quote
+      </a>
+    </div>
+
+    <!-- Cart button -->
+    <div class="nav-cart">
+      <button class="nav-cart-btn" onclick="KP.cart.toggle()" aria-label="Open cart">
+        <div class="cart-icon-wrap">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </div>
+        <div class="cart-info">
+          <span class="cart-lbl">Cart</span>
+          <span class="cart-tot" id="cartTot">R0.00</span>
+        </div>
+      </button>
+    </div>
+
+    <!-- Hamburger (mobile) -->
+    <div class="nav-hamburger" id="hamburgerBtn" onclick="KP.nav.toggle()" aria-label="Open menu" role="button" tabindex="0">
+      <i class="fas fa-bars" id="hamburgerIcon"></i>
+    </div>
+
+  </div>
+</nav>
+
+<!-- Mobile drawer -->
+<div class="nav-drawer" id="navDrawer" role="dialog" aria-label="Mobile navigation">
+  <a href="#home"      onclick="KP.nav.close()"><i class="fas fa-home"></i>Home</a>
+  <a href="#services"  onclick="KP.nav.close()"><i class="fas fa-layer-group"></i>Services</a>
+  <a href="#shop"      onclick="KP.nav.close()"><i class="fas fa-print"></i>Shop</a>
+  <a href="#portfolio" onclick="KP.nav.close()"><i class="fas fa-images"></i>Portfolio</a>
+  <!-- Sub-links for Products -->
+  <div class="nav-drawer-sub">
+    <a href="#shop" onclick="KP.nav.close()"><i class="fas fa-sign"></i>Signage &amp; Banners</a>
+    <a href="#shop" onclick="KP.nav.close()"><i class="fas fa-tshirt"></i>Apparel</a>
+    <a href="#shop" onclick="KP.nav.close()"><i class="fas fa-calendar-alt"></i>Calendars</a>
+    <a href="#shop" onclick="KP.nav.close()"><i class="fas fa-mug-hot"></i>Sublimation</a>
+  </div>
+  <a href="#about"   onclick="KP.nav.close()"><i class="fas fa-info-circle"></i>About</a>
+  <a href="#contact" onclick="KP.nav.close()"><i class="fas fa-envelope"></i>Contact</a>
+  <a href="#" class="cta" onclick="KP.modal.open('quote');KP.nav.close();return false">
+    <i class="fas fa-file-invoice"></i>Request a Quote
+  </a>
+  <a href="#" onclick="KP.modal.open('login');KP.nav.close();return false">
+    <i class="fas fa-user-circle"></i>My Account
+  </a>
+</div>

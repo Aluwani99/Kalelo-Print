@@ -1,0 +1,154 @@
+<!-- ================================================================
+     MODALS.HTML  —  Login · Register · Quote · Quick-View
+     All hidden by default; opened via KP.modal.open('id')
+     ================================================================ -->
+
+<!-- ── LOGIN / REGISTER MODAL ─────────────────────────────────── -->
+<div class="modal" id="loginModal" role="dialog" aria-modal="true" aria-label="Login or Register"
+     onclick="if(event.target===this)KP.modal.close('login')">
+  <div class="modal-box">
+    <div class="modal-hd">
+      <h3><i class="fas fa-user-circle"></i>My Account</h3>
+      <button class="btn-modal-x" onclick="KP.modal.close('login')" aria-label="Close"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body">
+      <!-- Tabs -->
+      <div class="modal-tabs">
+        <button class="modal-tab active" onclick="KP.modal.tab(this,'loginPanel')">Login</button>
+        <button class="modal-tab" onclick="KP.modal.tab(this,'registerPanel')">Register</button>
+      </div>
+
+      <!-- Login panel -->
+      <div class="modal-panel active" id="loginPanel">
+        <div class="fg">
+          <label>Email Address</label>
+          <input type="email" id="lEmail" placeholder="you@example.com" autocomplete="email">
+        </div>
+        <div class="fg">
+          <label>Password</label>
+          <input type="password" id="lPass" placeholder="••••••••" autocomplete="current-password">
+        </div>
+        <button class="btn-modal-sub" onclick="KP.auth.login()">Login to My Account</button>
+        <div class="modal-foot">
+          <a href="#" onclick="KP.modal.close('login')">Forgot password?</a>
+        </div>
+      </div>
+
+      <!-- Register panel -->
+      <div class="modal-panel" id="registerPanel">
+        <div class="fg">
+          <label>Full Name</label>
+          <input type="text" id="rName" placeholder="Your full name" autocomplete="name">
+        </div>
+        <div class="fg">
+          <label>Email Address</label>
+          <input type="email" id="rEmail" placeholder="you@example.com" autocomplete="email">
+        </div>
+        <div class="fg">
+          <label>Phone Number</label>
+          <input type="tel" id="rPhone" placeholder="+27 xx xxx xxxx" autocomplete="tel">
+        </div>
+        <div class="fg">
+          <label>Password</label>
+          <input type="password" id="rPass" placeholder="Create a password" autocomplete="new-password">
+        </div>
+        <button class="btn-modal-sub" onclick="KP.auth.register()">Create Account</button>
+        <div class="modal-foot">By registering you agree to our <a href="#">Terms &amp; Conditions</a></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ── QUOTE REQUEST MODAL ─────────────────────────────────────── -->
+<div class="modal" id="quoteModal" role="dialog" aria-modal="true" aria-label="Request a Quote"
+     onclick="if(event.target===this)KP.modal.close('quote')">
+  <div class="modal-box">
+    <div class="modal-hd">
+      <h3><i class="fas fa-file-invoice"></i>Request a Quote</h3>
+      <button class="btn-modal-x" onclick="KP.modal.close('quote')" aria-label="Close"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body">
+      <div class="fg">
+        <label>Your Name</label>
+        <input type="text" id="qName" placeholder="Full name" autocomplete="name">
+      </div>
+      <div class="fg">
+        <label>Email Address</label>
+        <input type="email" id="qEmail" placeholder="you@example.com" autocomplete="email">
+      </div>
+      <div class="fg">
+        <label>Phone Number</label>
+        <input type="tel" id="qPhone" placeholder="+27 xx xxx xxxx" autocomplete="tel">
+      </div>
+      <div class="fg">
+        <label>Company Name (optional)</label>
+        <input type="text" id="qCompany" placeholder="Your company" autocomplete="organization">
+      </div>
+      <div class="fg">
+        <label>Product / Service</label>
+        <input type="text" id="qProduct" placeholder="e.g. 500 A5 flyers, pull-up banner...">
+      </div>
+      <div class="fg">
+        <label>Details, Quantity &amp; Special Requirements</label>
+        <textarea id="qDetails" rows="4" placeholder="Size, colour, finish, quantity, deadline..."></textarea>
+      </div>
+      <button class="btn-modal-sub" onclick="KP.quote.submit()">Submit Quote Request</button>
+      <div class="modal-foot">We'll respond within 2 business hours · <a href="tel:+27113456789">Call us: +27 11 345 6789</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── QUICK-VIEW MODAL ─────────────────────────────────────────── -->
+<div class="modal" id="quickviewModal" role="dialog" aria-modal="true" aria-label="Quick view product"
+     onclick="if(event.target===this)KP.modal.close('quickview')">
+  <div class="modal-box wide">
+    <div class="modal-hd">
+      <h3><i class="fas fa-eye"></i>Quick View</h3>
+      <button class="btn-modal-x" onclick="KP.modal.close('quickview')" aria-label="Close"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="qv-grid">
+      <div class="qv-img" id="qvImg">
+        <i class="fas fa-print"></i>
+      </div>
+      <div class="qv-info">
+        <div class="qv-cat"  id="qvCat">Category</div>
+        <div class="qv-name" id="qvName">Product Name</div>
+        <div class="qv-price" id="qvPrice">R0</div>
+        <div class="qv-desc" id="qvDesc">Product description goes here.</div>
+        <button class="btn btn-ink" style="width:100%;justify-content:center;padding:14px;" onclick="KP.shop.addFromQV()">
+          <i class="fas fa-cart-plus"></i> Add to Cart
+        </button>
+        <button class="btn btn-outline" style="width:100%;justify-content:center;padding:12px;margin-top:8px;" onclick="KP.modal.open('quote');KP.modal.close('quickview')">
+          <i class="fas fa-file-invoice"></i> Request Quote
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── ORDER CONFIRMATION MODAL ────────────────────────────────── -->
+<div class="modal" id="confirmModal" role="dialog" aria-modal="true" aria-label="Order confirmed"
+     onclick="if(event.target===this)KP.modal.close('confirm')">
+  <div class="modal-box" style="text-align:center;">
+    <div class="modal-hd" style="background:var(--green)">
+      <h3 style="color:#fff;"><i class="fas fa-check-circle"></i>Order Confirmed!</h3>
+      <button class="btn-modal-x" onclick="KP.modal.close('confirm')" aria-label="Close"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body">
+      <i class="fas fa-print" style="font-size:3rem;color:var(--red);margin-bottom:16px;display:block;"></i>
+      <h3 style="font-family:'Syne',sans-serif;font-size:20px;font-weight:700;margin-bottom:10px;">Thank you for your order!</h3>
+      <p style="font-size:13.5px;color:#555;line-height:1.7;margin-bottom:20px;">
+        Your order has been placed successfully. We'll send a confirmation email shortly.
+        Expect a call from our team to confirm artwork and delivery details.
+      </p>
+      <div style="border:var(--border);padding:16px;margin-bottom:20px;text-align:left;">
+        <div style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;">Order Number</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:36px;" id="confirmOrderNum">KP-000000</div>
+      </div>
+      <button class="btn btn-ink" style="width:100%;justify-content:center;padding:14px;" onclick="KP.modal.close('confirm')">
+        Continue Shopping <i class="fas fa-arrow-right"></i>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+/* ================================================================
+   STYLE.CSS  —  Master CSS Entry Point
+   Kalelo Print · Sandton, Gauteng
+   Import order matters — base must come first, responsive last
+   ================================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=Outfit:wght@300;400;500;600&family=Bebas+Neue&display=swap');
+
+/* 1 ── Foundation */
+@import 'base.css';
+
+/* 2 ── Navigation */
+@import 'topbar.css';
+@import 'navigation.css';
+
+/* 3 ── Page Sections (order = document flow) */
+@import 'hero.css';
+@import 'services.css';
+@import 'how-it-works.css';
+@import 'products.css';
+@import 'stats.css';
+@import 'about.css';
+@import 'why-choose-us.css';
+@import 'discount-banner.css';
+@import 'testimonials.css';
+@import 'faq.css';
+@import 'blog.css';
+@import 'upload.css';
+@import 'printing-options.css';
+@import 'footer.css';
+
+/* 4 ── Global UI Components */
+@import 'modal.css';
+@import 'cart-sidebar.css';
+@import 'whatsapp.css';
+@import 'notifications.css';
+
+/* 5 ── Responsive overrides (always last) */
+@import 'responsive.css';

@@ -1,0 +1,42 @@
+<!-- ================================================================
+     CART-SIDEBAR.HTML  —  Sliding cart panel + overlay
+     ================================================================ -->
+<div class="cart-overlay" id="cartOverlay" onclick="KP.cart.toggle()"></div>
+
+<aside class="cart-sidebar" id="cartSidebar" aria-label="Shopping cart" role="complementary">
+
+  <!-- Header -->
+  <div class="cart-hd">
+    <h3><i class="fas fa-shopping-cart"></i>&nbsp;Your Cart</h3>
+    <button class="btn-cart-close" onclick="KP.cart.toggle()" aria-label="Close cart">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+
+  <!-- Items (populated by KP.cart.render()) -->
+  <div class="cart-body" id="cartBody">
+    <div class="cart-empty">
+      <i class="fas fa-shopping-cart"></i>
+      <p>Your cart is empty</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="cart-ft">
+    <div class="cart-subtotal">
+      <span>Subtotal</span>
+      <span id="cartSub">R0.00</span>
+    </div>
+    <div class="cart-delivery-note" id="cartDeliveryNote" style="display:none">
+      <i class="fas fa-truck"></i>
+      <span id="cartDeliveryMsg">Free delivery on orders over R500</span>
+    </div>
+    <button class="btn-checkout" onclick="KP.cart.checkout()">
+      <i class="fas fa-lock"></i> Proceed to Checkout
+    </button>
+    <button class="btn-continue" onclick="KP.cart.toggle()">
+      Continue Shopping
+    </button>
+  </div>
+
+</aside>

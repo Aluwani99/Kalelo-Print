@@ -1,0 +1,16 @@
+/* ================================================================
+   TESTIMONIALS.CSS
+   ================================================================ */
+.testimonials-section { background:var(--cream); background-image:var(--grain); }
+.testi-grid         { max-width:var(--max-width); margin:0 auto; display:grid; grid-template-columns:repeat(3,1fr); border-left:var(--border); }
+.tcard              { border-right:var(--border); border-bottom:var(--border); padding:32px; transition:background var(--t); display:flex; flex-direction:column; }
+.tcard:hover        { background:#f0ebe0; }
+.tcard-head         { display:flex; align-items:center; gap:14px; padding-bottom:18px; border-bottom:var(--border); margin-bottom:16px; }
+.tcard-av           { width:44px; height:44px; background:var(--ink); color:var(--cream); display:flex; align-items:center; justify-content:center; font-family:'Syne',sans-serif; font-size:13px; font-weight:800; flex-shrink:0; }
+.tcard-name         { font-family:'Syne',sans-serif; font-size:13px; font-weight:700; margin-bottom:4px; }
+.tcard-stars        { display:flex; gap:2px; }
+.tcard-stars i      { font-size:9px; color:var(--gold); }
+.tcard-text         { font-size:13px; color:#555; line-height:1.75; font-style:italic; flex:1; margin-bottom:14px; }
+.tcard-platform     { display:flex; align-items:center; gap:6px; font-size:10px; color:var(--muted); letter-spacing:.08em; text-transform:uppercase; margin-bottom:6px; }
+.tcard-platform i   { font-size:11px; color:#4285f4; }
+.tcard-date         { font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:#bbb; }

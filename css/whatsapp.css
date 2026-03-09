@@ -1,0 +1,27 @@
+/* ================================================================
+   WHATSAPP.CSS
+   ================================================================ */
+.wa-fab             { position:fixed; bottom:28px; right:28px; z-index:400; }
+.wa-bubble          { width:56px; height:56px; background:var(--green); border:3px solid var(--ink); display:flex; align-items:center; justify-content:center; font-size:24px; color:#fff; cursor:pointer; box-shadow:var(--shadow); transition:transform var(--t); }
+.wa-bubble:hover    { transform:translateY(-3px); }
+.wa-panel           { position:fixed; bottom:96px; right:28px; width:320px; background:var(--cream); background-image:var(--grain); border:var(--border-thick); box-shadow:var(--shadow-lg); z-index:399; display:none; flex-direction:column; animation:wa-in .2s ease; }
+.wa-panel.open      { display:flex; }
+@keyframes wa-in    { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+.wa-ph              { background:var(--green); padding:14px 16px; display:flex; align-items:center; gap:12px; border-bottom:var(--border); }
+.wa-ph i            { font-size:22px; color:#fff; }
+.wa-ph-text h4      { font-family:'Syne',sans-serif; font-size:13px; font-weight:800; color:#fff; }
+.wa-ph-text p       { font-size:10px; color:rgba(255,255,255,.75); }
+.wa-ph-close        { margin-left:auto; background:none; border:none; color:rgba(255,255,255,.7); font-size:16px; cursor:pointer; }
+.wa-msgs            { height:160px; overflow-y:auto; padding:12px; display:flex; flex-direction:column; gap:8px; }
+.wa-msg             { max-width:85%; padding:8px 12px; font-size:12px; line-height:1.5; }
+.wa-msg.recv        { background:#e8e3db; border:var(--border); align-self:flex-start; }
+.wa-msg.sent        { background:var(--ink); color:var(--cream); align-self:flex-end; }
+.wa-opts            { padding:8px 12px; border-top:var(--border); display:flex; flex-direction:column; gap:5px; max-height:150px; overflow-y:auto; }
+.wa-opt             { padding:7px 12px; border:var(--border); background:none; font-family:'Outfit',sans-serif; font-size:12px; font-weight:500; color:var(--ink); cursor:pointer; text-align:left; display:flex; align-items:center; gap:8px; transition:background var(--t),color var(--t); }
+.wa-opt:hover       { background:var(--ink); color:var(--cream); }
+.wa-opt i           { font-size:11px; color:var(--red); transition:color var(--t); }
+.wa-opt:hover i     { color:var(--gold); }
+.wa-input-row       { display:flex; border-top:var(--border); }
+.wa-input           { flex:1; padding:10px 12px; border:none; background:transparent; font-family:'Outfit',sans-serif; font-size:12px; outline:none; }
+.wa-send            { padding:0 14px; background:var(--ink); color:var(--cream); border:none; cursor:pointer; font-size:12px; transition:background var(--t); }
+.wa-send:hover      { background:var(--green); }

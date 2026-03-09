@@ -1,0 +1,46 @@
+<!-- ================================================================
+     WHATSAPP.HTML  —  Floating WhatsApp chat widget
+     ================================================================ -->
+<div class="wa-fab" aria-label="WhatsApp chat">
+
+  <!-- Bubble trigger -->
+  <div class="wa-bubble" onclick="KP.wa.toggle()" role="button" tabindex="0" aria-label="Open WhatsApp chat">
+    <i class="fab fa-whatsapp"></i>
+  </div>
+
+  <!-- Chat panel -->
+  <div class="wa-panel" id="waPanel" role="dialog" aria-label="WhatsApp chat">
+
+    <!-- Header -->
+    <div class="wa-ph">
+      <i class="fab fa-whatsapp"></i>
+      <div class="wa-ph-text">
+        <h4>Kalelo Print</h4>
+        <p>Typically replies within minutes</p>
+      </div>
+      <button class="wa-ph-close" onclick="KP.wa.toggle()" aria-label="Close WhatsApp">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <!-- Messages -->
+    <div class="wa-msgs" id="waMsgs">
+      <div class="wa-msg recv">
+        👋 Hi! Welcome to Kalelo Print — Sandton's premier print studio. How can we help you today?
+      </div>
+    </div>
+
+    <!-- Quick option buttons -->
+    <div class="wa-opts" id="waOpts"></div>
+
+    <!-- Type your message -->
+    <div class="wa-input-row">
+      <input class="wa-input" id="waIn" placeholder="Type a message..."
+             onkeydown="if(event.key==='Enter')KP.wa.send()" aria-label="Type a WhatsApp message">
+      <button class="wa-send" onclick="KP.wa.send()" aria-label="Send message">
+        <i class="fas fa-paper-plane"></i>
+      </button>
+    </div>
+
+  </div>
+</div>

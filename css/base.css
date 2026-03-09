@@ -1,0 +1,65 @@
+/* ================================================================
+   BASE.CSS  —  Reset · Tokens · Typography · Shared Utilities
+   Kalelo Print · Sandton, Gauteng
+   ================================================================ */
+
+:root {
+  --cream        : #f5f0e8;
+  --ink          : #1a1a1a;
+  --red          : #c8382a;
+  --gold         : #f5c842;
+  --green        : #25d366;
+  --muted        : #888;
+  --border       : 1.5px solid #1a1a1a;
+  --border-thick : 3px solid #1a1a1a;
+  --grain        : repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,.012) 3px,rgba(0,0,0,.012) 4px);
+  --grain-dark   : repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(255,255,255,.018) 3px,rgba(255,255,255,.018) 4px);
+  --shadow       : 4px 4px 0 var(--ink);
+  --shadow-lg    : 8px 8px 0 var(--ink);
+  --shadow-red   : 4px 4px 0 var(--red);
+  --max-width    : 1440px;
+  --topbar-h     : 42px;
+  --nav-h        : 66px;
+  --t            : .15s ease;
+  --t-slow       : .3s cubic-bezier(.4,0,.2,1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html                   { scroll-behavior: smooth; font-size: 16px; -webkit-text-size-adjust: 100%; }
+body                   { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(--ink); overflow-x: hidden; line-height: 1.5; }
+img, svg               { display: block; max-width: 100%; }
+a                      { text-decoration: none; color: inherit; }
+button                 { font-family: inherit; cursor: pointer; }
+ul, ol                 { list-style: none; }
+input, textarea, select { font-family: inherit; }
+body.locked            { overflow: hidden; }
+
+.sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+
+/* ── Shared Section Header ── */
+.sec-head                     { background: var(--cream); background-image: var(--grain); border-bottom: var(--border-thick); }
+.sec-head.dark                { background: var(--ink); background-image: var(--grain-dark); border-bottom: 3px solid rgba(255,255,255,.15); }
+.sec-head-inner               { max-width: var(--max-width); margin: 0 auto; display: flex; align-items: stretch; min-height: 68px; }
+.sec-kicker                   { display:flex; align-items:center; gap:10px; padding:0 28px; background:var(--ink); color:var(--cream); font-family:'Syne',sans-serif; font-size:10.5px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; border-right:var(--border-thick); white-space:nowrap; flex-shrink:0; }
+.sec-kicker i                 { color: var(--gold); font-size: 12px; }
+.sec-kicker.red               { background: var(--red); }
+.sec-head.dark .sec-kicker    { background: var(--red); border-right-color: rgba(255,255,255,.15); }
+.sec-vr                       { width: 3px; background: var(--ink); flex-shrink: 0; }
+.sec-head.dark .sec-vr        { background: rgba(255,255,255,.15); }
+.sec-title-area               { display:flex; align-items:center; gap:24px; padding:0 32px; flex:1; }
+.sec-title-area h2            { font-family:'Bebas Neue',sans-serif; font-size:clamp(26px,3vw,44px); letter-spacing:.02em; flex-shrink:0; }
+.sec-head.dark .sec-title-area h2 { color: var(--cream); }
+.sec-title-area p             { font-size:13px; color:#666; max-width:520px; line-height:1.65; }
+.sec-head.dark .sec-title-area p  { color: rgba(245,240,232,.5); }
+
+/* ── Shared Buttons ── */
+.btn                { display:inline-flex; align-items:center; gap:8px; padding:12px 24px; font-family:'Syne',sans-serif; font-size:12px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; border:none; transition:background var(--t),color var(--t); }
+.btn-ink            { background:var(--ink); color:var(--cream); }
+.btn-ink:hover      { background:var(--red); }
+.btn-red            { background:var(--red); color:#fff; }
+.btn-red:hover      { background:var(--ink); }
+.btn-outline        { background:transparent; color:var(--ink); border:var(--border); }
+.btn-outline:hover  { background:var(--ink); color:var(--cream); }
+.btn-green          { background:var(--green); color:#fff; }
+.btn-green:hover    { background:#1aa44e; }

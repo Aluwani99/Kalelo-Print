@@ -1,0 +1,115 @@
+<!-- ================================================================
+     UPLOAD.HTML  —  Artwork upload section
+     ================================================================ -->
+<section class="upload-section">
+  <div class="sec-head">
+    <div class="sec-head-inner">
+      <div class="sec-kicker"><i class="fas fa-upload"></i>Upload Artwork</div>
+      <div class="sec-vr"></div>
+      <div class="sec-title-area">
+        <h2>Send Us Your Files</h2>
+        <p>Upload your artwork directly — we'll review and confirm before going to press.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="upload-grid">
+
+    <!-- Left: drop zone -->
+    <div class="upload-left">
+      <h3 style="font-family:'Syne',sans-serif;font-size:18px;font-weight:700;margin-bottom:16px;">Drop Your Artwork Here</h3>
+
+      <div class="upload-area" id="uploadArea"
+           ondragover="KP.upload.dragOver(event)"
+           ondragleave="KP.upload.dragLeave(event)"
+           ondrop="KP.upload.drop(event)"
+           onclick="document.getElementById('fileInput').click()"
+           role="button" tabindex="0" aria-label="Click or drag files to upload">
+        <i class="fas fa-cloud-upload-alt"></i>
+        <h3>Click to browse or drag &amp; drop</h3>
+        <p>Maximum file size: 50MB per file<br>We'll contact you to confirm specs before printing.</p>
+        <div class="upload-formats">
+          <span class="fmt-tag">PDF</span>
+          <span class="fmt-tag">AI</span>
+          <span class="fmt-tag">EPS</span>
+          <span class="fmt-tag">PSD</span>
+          <span class="fmt-tag">JPG</span>
+          <span class="fmt-tag">PNG</span>
+          <span class="fmt-tag">SVG</span>
+          <span class="fmt-tag">TIFF</span>
+        </div>
+      </div>
+
+      <input type="file" id="fileInput" multiple accept=".pdf,.ai,.eps,.psd,.jpg,.jpeg,.png,.svg,.tiff,.tif" style="display:none" onchange="KP.upload.handleFiles(this.files)">
+
+      <div class="file-list" id="fileList"></div>
+
+      <p style="font-size:12px;color:var(--muted);margin-top:12px;">
+        <i class="fas fa-info-circle" style="color:var(--red)"></i>
+        Need help with your artwork? <a href="#" onclick="KP.modal.open('quote');return false" style="color:var(--red);font-weight:600">Contact our design team</a> — we offer free file checks.
+      </p>
+    </div>
+
+    <div class="upload-vr" aria-hidden="true"></div>
+
+    <!-- Right: guidelines -->
+    <div class="upload-right">
+      <h3 style="font-family:'Syne',sans-serif;font-size:18px;font-weight:700;margin-bottom:20px;">Artwork Guidelines</h3>
+
+      <div style="display:flex;flex-direction:column;gap:18px;">
+
+        <div style="display:flex;gap:14px;align-items:flex-start;">
+          <div style="width:38px;height:38px;background:var(--ink);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <i class="fas fa-expand-arrows-alt" style="color:var(--cream);font-size:14px;"></i>
+          </div>
+          <div>
+            <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:13.5px;margin-bottom:4px;">Resolution</div>
+            <div style="font-size:13px;color:#555;line-height:1.6;">Minimum 300 DPI at final print size. Low-resolution files may appear blurry when printed.</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:14px;align-items:flex-start;">
+          <div style="width:38px;height:38px;background:var(--ink);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <i class="fas fa-palette" style="color:var(--cream);font-size:14px;"></i>
+          </div>
+          <div>
+            <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:13.5px;margin-bottom:4px;">Colour Mode</div>
+            <div style="font-size:13px;color:#555;line-height:1.6;">CMYK colour mode for print. RGB files will be converted — slight colour shifts may occur.</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:14px;align-items:flex-start;">
+          <div style="width:38px;height:38px;background:var(--ink);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <i class="fas fa-ruler-combined" style="color:var(--cream);font-size:14px;"></i>
+          </div>
+          <div>
+            <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:13.5px;margin-bottom:4px;">Bleed &amp; Safe Zone</div>
+            <div style="font-size:13px;color:#555;line-height:1.6;">Include 3mm bleed on all edges. Keep important content 5mm from trim lines.</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:14px;align-items:flex-start;">
+          <div style="width:38px;height:38px;background:var(--ink);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <i class="fas fa-font" style="color:var(--cream);font-size:14px;"></i>
+          </div>
+          <div>
+            <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:13.5px;margin-bottom:4px;">Fonts</div>
+            <div style="font-size:13px;color:#555;line-height:1.6;">Outline all fonts or embed them in the file to prevent substitution issues.</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:14px;align-items:flex-start;">
+          <div style="width:38px;height:38px;background:var(--red);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <i class="fas fa-question" style="color:#fff;font-size:14px;"></i>
+          </div>
+          <div>
+            <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:13.5px;margin-bottom:4px;">Not Sure?</div>
+            <div style="font-size:13px;color:#555;line-height:1.6;">Upload what you have and our team will advise. We offer free pre-press checks on all files.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
