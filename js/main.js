@@ -454,7 +454,7 @@ KP.wa = {
       const btn  = document.createElement('button');
       btn.className = 'wa-opt';
       btn.innerHTML = `<i class="fas ${o.icon}"></i>${o.label}`;
-      btn.onclick   = () => window.open(`https://wa.me/27831234567?text=${encodeURIComponent(o.msg)}`, '_blank');
+      btn.onclick   = () => window.open(`https://wa.me/27602671468?text=${encodeURIComponent(o.msg)}`, '_blank');
       opts.appendChild(btn);
     });
   },
